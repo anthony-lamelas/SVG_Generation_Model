@@ -1,0 +1,10 @@
+ipykernel
+unsloth 
+datasets 
+trl 
+transformers 
+accelerate 
+peft 
+bitsandbytes 
+pandas 
+lxml
