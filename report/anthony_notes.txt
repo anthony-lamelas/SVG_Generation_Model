@@ -1,0 +1,23 @@
+First setup:
+
+Tried unsloth/Qwen2.5-1.5B-Instruct-bnb-4bit with only 100 samples to confirm the setup.
+
+
+Second setup:
+
+model: unsloth/Qwen2.5-3B-Instruct-bnb-4bit
+max seq length 2048 -> 1024
+lora_r 16 -> 8
+per device train batch size 2 -> 1
+gradient accumulation steps 8 -> 16
+loggins steps 20 -> 50
+eval steps 100 to 500
+save steps 200 to 500
+now using 50000 samples
+
+training args:
+save total limit 2 to 3
+load best model at end is true
+metric for best model = eval_loss
+greater_is_better = false
+
