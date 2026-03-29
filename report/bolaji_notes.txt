@@ -1,0 +1,29 @@
+Model adapter: artifacts/qwen3b_svg_lora/
+Base model: Qwen/Qwen2.5-3B-Instruct (load via HuggingFace + PeftModel, NOT Unsloth)
+
+--- GOOD PARAMS (submission scored 15.03373) ---
+
+  max_new_tokens=2000
+  do_sample=False          # greedy decoding
+  repetition_penalty=1.0   # no penalty (default)
+  pad_token_id=tokenizer.eos_token_id
+  batch_size=8
+
+Greedy decoding + no repetition penalty gave the best score.
+
+--- BAD PARAMS (submission scored 14.40353 — worse) ---
+
+  max_new_tokens=2000
+  do_sample=True
+  temperature=0.2
+  top_p=0.9
+  repetition_penalty=1.3
+  pad_token_id=tokenizer.eos_token_id
+  batch_size=8
+
+Why it may have hurt: SVG path data is naturally coordinate-repetitive 
+repetition_penalty=1.3 penalizes repeating numbers, corrupting valid path coords.
+do_sample also adds noise to what should be a precise structured output.
+
+but im not entireley sure, you can debug the 2 json files, to analyze what went wrong.
+The one with the earlier timestamp in the name is better.
