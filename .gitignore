@@ -3,7 +3,12 @@ venv/
 __pycache__/
 .env
 
-artifacts/qwen3b_svg_lora_v2/
+
 artifacts/*/checkpoint-*/
 artifacts/qwen2b_svg_lora/
+
+# Large model files — track configs/templates only, not weights
+*.safetensors
+*.zip
+artifacts/**/*.bin
 unsloth_compiled_cache/
