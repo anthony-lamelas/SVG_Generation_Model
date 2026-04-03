@@ -56,4 +56,38 @@ If you are using the terminal for setup or package installs, activate the same e
 - Windows PowerShell: `./venv/Scripts/Activate.ps1`
 
 
-## Note that if you want to run the notebook as we did, you have to delete XXX
+## Notebook State
+
+The committed state of `starter-notebook.ipynb` does **not** contain cell outputs from a full training or inference run. The `artifacts/` folder contains only the saved checkpoints from our best model (`qwen3b_svg_lora`). Cell outputs were cleared before committing to keep the repo lightweight. If you want to see the results of our run, refer to `results.ipynb` and `analyze_run.ipynb`.
+
+---
+
+## Starting Fresh (Reproducing Our Run)
+
+To avoid the notebook skipping training/inference by detecting our pre-existing outputs, delete the following before running:
+
+```bash
+# Saved LoRA adapter (causes Cell 9 to load for inference instead of training)
+rm -rf artifacts/qwen3b_svg_lora/
+
+# Any completed submission CSVs (causes Cell 13 to skip inference entirely)
+rm -f submission_qwen3b_svg_lora_*.csv submission1.csv submission2.csv
+
+# Any in-progress partial runs
+rm -f submission_qwen3b_svg_lora_*.csv.part
+
+# Any debug logs from previous runs (optional, won't affect notebook behavior)
+rm -f debug_qwen3b_svg_lora_*.jsonl
+```
+
+## Setting Up the Jupyter Kernel
+
+To use the project's virtual environment as the notebook kernel, install `ipykernel` and register it:
+
+```bash
+source venv/bin/activate
+pip install ipykernel
+python -m ipykernel install --user --name=venv --display-name "Python (venv)"
+```
+
+Then in VS Code, open the notebook and select **"Python (venv)"** from the kernel picker in the top-right.
