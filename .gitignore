@@ -4,8 +4,7 @@ __pycache__/
 .env
 
 
-artifacts/*/checkpoint-*/
-artifacts/qwen2b_svg_lora/
+
 
 # Large model files — track configs/templates only, not weights
 *.safetensors
