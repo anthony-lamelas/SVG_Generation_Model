@@ -36,12 +36,21 @@ Run all cells top-to-bottom.
 
 ---
 
-## Quick Start (inference only)
+## Quick Start
 
 ```bash
-# activate environment
-source venv/bin/activate
-
-# open starter-notebook.ipynb and run:
-#   Cell 4 (imports) → Cell 9 (load model) → Cell 12 (test) → Cell 13 (submit)
+# open each notebook in VS Code
+# select the project's venv as the notebook kernel / Python interpreter
+# run cells top-to-bottom
 ```
+
+Recommended order:
+
+1. `starter-notebook.ipynb` — run all cells to train or load the adapter, test generation, and create a submission CSV.
+2. `results.ipynb` — run all cells to inspect training metrics and compare runs.
+3. `analyze_run.ipynb` — run all cells to inspect a generated `debug_*.jsonl` file and categorize failures.
+
+If you are using the terminal for setup or package installs, activate the same environment there as well.
+
+- macOS/Linux: `source venv/bin/activate`
+- Windows PowerShell: `./venv/Scripts/Activate.ps1`
