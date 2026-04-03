@@ -71,6 +71,7 @@ To avoid the notebook skipping training/inference by detecting our pre-existing 
 rm -rf artifacts/qwen3b_svg_lora/
 
 # Any completed submission CSVs (causes Cell 13 to skip inference entirely)
+# You could also move them to another location if you prefer that.
 rm -f submission_qwen3b_svg_lora_*.csv submission1.csv submission2.csv
 
 # Any in-progress partial runs
