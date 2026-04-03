@@ -54,3 +54,6 @@ If you are using the terminal for setup or package installs, activate the same e
 
 - macOS/Linux: `source venv/bin/activate`
 - Windows PowerShell: `./venv/Scripts/Activate.ps1`
+
+
+## Note that if you want to run the notebook as we did, you have to delete XXX
